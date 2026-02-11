@@ -25,9 +25,19 @@ body {
 
 h2 {
   text-align: center;
-  font-size: 26px;
-  letter-spacing: 3px;
+  font-size: 28px;
+  letter-spacing: 5px;
   margin-bottom: 40px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #bfa046;
+  display: block;
+  margin: 15px auto 0;
 }
 
 input {
