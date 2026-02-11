@@ -191,7 +191,7 @@ function uranai() {
   const birthMonth = parseInt(document.getElementById("birthMonth").value);
   const birthHour = parseInt(document.getElementById("birthHour").value);
 
-  if (!birthMonth || !birthHour) {
+  if (isNaN(birthMonth) || isNaN(birthHour)) {
     document.getElementById("result").innerText = "月と時間を入力してください";
     return;
   }
