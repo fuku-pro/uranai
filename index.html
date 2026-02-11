@@ -5,15 +5,18 @@
 <head>
   <meta charset="UTF-8">
   <title>紫微斗数占い</title>
+
 <style>
 body {
   font-family: "Hiragino Mincho ProN", serif;
-  background: #f7f4ef;
-  padding: 20px;
+  background: linear-gradient(135deg, #f8f5f0, #ece5d8);
+  padding: 40px;
+  margin: 0;
 }
+
 .container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 40px auto;
   background: #ffffff;
   padding: 40px;
   border: 1px solid #d4c6a1;
@@ -26,24 +29,38 @@ h2 {
   letter-spacing: 3px;
   margin-bottom: 40px;
 }
-select, button {
+
+input {
   font-size: 16px;
-  margin: 6px 0;
+  padding: 8px;
+  width: 120px;
+  margin-bottom: 15px;
+  border: 1px solid #c9b37e;
+  border-radius: 4px;
 }
 
 button {
-  padding: 8px 16px;
+  background: linear-gradient(135deg, #bfa046, #e6c873);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.85;
 }
 
 #result {
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin-top: 16px;
+  margin-top: 30px;
+  line-height: 1.9;
   white-space: pre-wrap;
 }
 </style>
-
 
 </head>
 <body>
