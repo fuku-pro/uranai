@@ -186,45 +186,6 @@ function makePaidReading(lifePalace, stars) {
 
 }
 
-  const starSentence = stars.map(star =>
-    `${star}は、${starMeanings[star]}を持つ重要な主星です。`
-  ).join("\n");
-
-  return `
-【紫微斗数 本格鑑定書】
-
-◆ 命宮：${lifePalace}
-
-${starSentence}
-
-【あなたの本質】
-あなたは表面よりも内面が強いタイプ。
-一度決めたことは簡単に曲げません。
-周囲からは落ち着いて見られますが、
-実は内側に強い信念を持っています。
-
-【才能と強み】
-・物事を長期的に見る力
-・責任感
-・粘り強さ
-・人の信頼を得る資質
-
-【仕事運】
-今後1年は「動いた人だけが伸びる」運気。
-新しい挑戦・発信・人脈拡大が鍵です。
-
-【金運】
-堅実型。投機より積み上げ型。
-専門性を高めるほど収入安定。
-
-【開運アドバイス】
-・環境を変える勇気を持つ
-・学びを止めない
-・自分を安売りしない
-
-あなたは本来、もっと評価される器を持っています。
-`;
-}
 
 function uranai() {
   const birthMonth = parseInt(document.getElementById("birthMonth").value);
