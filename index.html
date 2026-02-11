@@ -88,6 +88,83 @@ button:hover {
 
 const palaces = ["命宮","兄弟宮","夫妻宮","子女宮","財帛宮","疾厄宮","遷移宮","奴僕宮","官禄宮","田宅宮","福徳宮","父母宮"];
 
+function getStarsByPalace(lifePalace) {
+  if (lifePalace === "官禄宮") return "紫微星";
+  if (lifePalace === "財帛宮") return "武曲星";
+  if (lifePalace === "田宅宮") return "天府星";
+  return "紫微星";
+}
+
+function makePaidReading(lifePalace, mainStar) {
+
+  if (mainStar === "紫微星") {
+    return `
+【紫微斗数 本格鑑定書】
+
+◆ 命宮：${lifePalace}
+◆ 主星：紫微星
+
+あなたは「王者の星」を持つ人。
+自然と人の中心に立つ運命です。
+`;
+  }
+
+  if (mainStar === "武曲星") {
+    return `
+【紫微斗数 本格鑑定書】
+
+◆ 命宮：${lifePalace}
+◆ 主星：武曲星
+
+あなたは実行力の星。
+努力が収入に直結するタイプです。
+`;
+  }
+
+  if (mainStar === "天府星") {
+    return `
+【紫微斗数 本格鑑定書】
+
+◆ 命宮：${lifePalace}
+◆ 主星：天府星
+
+あなたは安定と財庫の星。
+積み上げ型で成功します。
+`;
+  }
+
+  // 保険
+  return `
+鑑定結果を表示できませんでした。
+もう一度お試しください。
+`;
+}
+
+function uranai() {
+  const birthMonth = parseInt(document.getElementById("birthMonth").value);
+  const birthHour = parseInt(document.getElementById("birthHour").value);
+
+  if (isNaN(birthMonth) || isNaN(birthHour)) {
+    document.getElementById("result").innerText = "月と時間を入力してください";
+    return;
+  }
+
+  const hourIndex = Math.floor(birthHour / 2);
+  const monthIndex = birthMonth - 1;
+  const palaceIndex = (monthIndex + hourIndex) % 12;
+
+  const lifePalace = palaces[palaceIndex];
+  const mainStar = getStarsByPalace(lifePalace);
+
+  const reading = makePaidReading(lifePalace, mainStar);
+
+  document.getElementById("result").innerText = reading;
+}
+
+</script>
+
+const palaces = ["命宮","兄弟宮","夫妻宮","子女宮","財帛宮","疾厄宮","遷移宮","奴僕宮","官禄宮","田宅宮","福徳宮","父母宮"];
+
 const starMeanings = {
   "紫微星": "統率力や責任感があり、全体を見渡して判断する力",
   "武曲星": "実行力と現実感覚に優れ、結果を形にしていく力",
