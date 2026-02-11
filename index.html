@@ -34,119 +34,23 @@ button {
 </head>
 <body>
 
-<select id="birthMonth">
-  <option value="1">1月</option>
-  <option value="2">2月</option>
-  <option value="3">3月</option>
-  <option value="4">4月</option>
-  <option value="5">5月</option>
-  <option value="6">6月</option>
-  <option value="7">7月</option>
-  <option value="8">8月</option>
-  <option value="9">9月</option>
-  <option value="10">10月</option>
-  <option value="11">11月</option>
-  <option value="12">12月</option>
-</select>
+<h2>紫微斗数 簡易鑑定</h2>
 
-<select id="birthHour">
-  <option value="0">0時</option>
-  <option value="2">2時</option>
-  <option value="4">4時</option>
-  <option value="6">6時</option>
-  <option value="8">8時</option>
-  <option value="10">10時</option>
-  <option value="12">12時</option>
-  <option value="14">14時</option>
-  <option value="16">16時</option>
-  <option value="18">18時</option>
-  <option value="20">20時</option>
-  <option value="22">22時</option>
-</select>
+<p>生まれ月</p>
+<input type="number" id="birthMonth" min="1" max="12">
 
-  <button onclick="uranai()">鑑定する</button>
-  <pre id="result"></pre>
-  <script>
+<p>生まれ時間（0〜23時）</p>
+<input type="number" id="birthHour" min="0" max="23">
 
-const palaces = [
-  "命宮","兄弟宮","夫妻宮","子女宮",
-  "財帛宮","疾厄宮","遷移宮","僕役宮",
-  "官禄宮","田宅宮","福徳宮","父母宮"
-];
+<br><br>
 
-function makeFreeReading(lifePalace, stars) {
-  return `
-【無料鑑定】
+<button onclick="uranai()" style="padding:10px 20px; font-size:16px;">
+鑑定する
+</button>
 
-あなたの命宮は${lifePalace}です。
-主に${stars.join("・")}の影響を受けています。
+<br><br>
 
-この星は、あなたの基本的な性格や
-物事への向き合い方を表します。
-`;
-}
-
-function makePaidReading(lifePalace, stars) {
-  const starSentence = makeStarSentence(stars);
-
-  return `
-【有料鑑定】
-
-あなたの命宮は${lifePalace}にあり、
-${starSentence}
-
-この配置から読み取れるのは、
-あなたがどんな場面で力を発揮し、
-どんな選択で運を伸ばせるか、という点です。
-
-今後1年は行動次第で
-仕事運に大きな差が出る時期となります。
-`;
-}
-
-const ispaid = true; // ← true にすると有料
-
-    const starMeanings = {
-  "紫微星": "統率力や責任感があり、全体を見渡して判断する力",
-  "武曲星": "実行力と現実感覚に優れ、結果を形にしていく力",
-  "天府星": "安定感があり、物事を堅実に積み上げていく力"
-};
-
-function makeStarSentence(stars) {
-  return stars.map(star => {
-    return `${star}は、${starMeanings[star]}を表します。`;
-  }).join("\n");
-}
-
-function getStarsByPalace(lifePalace) {
-  if (lifePalace === "官禄宮") return ["紫微星"];
-  if (lifePalace === "財帛宮") return ["武曲星"];
-  if (lifePalace === "田宅宮") return ["天府星"];
-  return ["紫微星"];
-}
-
-function uranai() { 
- const birthMonth = parseInt(document.getElementById("birthMonth").value);
-  const birthHour = parseInt(document.getElementById("birthHour").value);
-
-  const hourIndex = Math.floor(birthHour / 2);
-  const monthIndex = birthMonth - 1;
-  const palaceIndex = (monthIndex + hourIndex) % 12;
-
-  const lifePalace = palaces[palaceIndex];
-  const stars = getStarsByPalace(lifePalace);
-
-  let reading;
-  if (isPaid) {
-    reading = makePaidReading(lifePalace, stars);
-  } else {
-    reading = makeFreeReading(lifePalace, stars);
-  }
-
-  document.getElementById("result").innerText = reading;
-}
-
-  </script>
+<pre id="result" style="white-space:pre-wrap;"></pre>
 
 
 </body>
