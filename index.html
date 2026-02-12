@@ -217,26 +217,27 @@ if (mainStar === "紫微星") {
 }
 function uranai() {
 
+  var clientName = document.getElementById("clientName").value;
+  var birthYear = parseInt(document.getElementById("birthYear").value);
   var birthMonth = parseInt(document.getElementById("birthMonth").value);
+  var birthDay = parseInt(document.getElementById("birthDay").value);
   var birthHour = parseInt(document.getElementById("birthHour").value);
 
-  if (isNaN(birthMonth) || isNaN(birthHour)) {
-    document.getElementById("result").innerText = "月と時間を入力してください";
+  if (!clientName || isNaN(birthYear) || isNaN(birthMonth) || isNaN(birthDay) || isNaN(birthHour)) {
+    document.getElementById("result").innerText = "すべて入力してください";
     return;
   }
 
-  var hourIndex = Math.floor(birthHour / 2);
-  var monthIndex = birthMonth - 1;
-  var palaceIndex = (monthIndex + hourIndex) % 12;
+  var baseNumber = birthYear + birthMonth + birthDay + birthHour;
+  var palaceIndex = baseNumber % 12;
 
   var lifePalace = palaces[palaceIndex];
   var stars = getStarsByPalace(lifePalace);
 
-  var reading = makePaidReading(lifePalace, stars);
+  var reading = makePaidReading(clientName, lifePalace, stars);
 
   document.getElementById("result").innerText = reading;
 }
-
 </script>
 </div>
 </body>
