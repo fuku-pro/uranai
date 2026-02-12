@@ -70,6 +70,18 @@ button:hover {
   white-space: pre-wrap;
   font-size: 15px;
 }
+@media print {
+  body {
+    background: #ffffff;
+  }
+  button, input {
+    display: none;
+  }
+  .container {
+    box-shadow: none;
+    border: none;
+  }
+}
 </style>
 
 </head>
