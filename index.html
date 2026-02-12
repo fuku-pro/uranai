@@ -115,12 +115,16 @@ function makePaidReading(clientName, lifePalace, stars) {
 
   var mainStar = stars[0];
 var today = new Date();
-var dateText = today.getFullYear() + "年" +
+var dateText =today.getFullYear() + "年" +
                (today.getMonth()+1) + "月" +
                today.getDate() + "日";
-if (mainStar === "紫微星") {
+var randomNum = Math.floor(1000 + Math.random() * 9000);
+var readingNo = "No." + today.getFullYear() + randomNum;
+
+  if (mainStar === "紫微星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
- "鑑定日：" + dateText + "\n\n" +
+  "鑑定番号：" + readingNo + "\n" +
+  "鑑定日：" + dateText + "\n\n" +
   "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：紫微星\n\n" +
