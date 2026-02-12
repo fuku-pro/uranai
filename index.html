@@ -116,7 +116,17 @@ button:hover {
 
 <pre id="result" style="white-space:pre-wrap;"></pre>
 <script>
+const heavenlyStems = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+const earthlyBranches = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
 
+function getYearGanZhi(year) {
+  const stem = heavenlyStems[(year - 4) % 10];
+  const branch = earthlyBranches[(year - 4) % 12];
+  return stem + branch;
+}
+function getShiChen(hour) {
+  return earthlyBranches[Math.floor((hour + 1) / 2) % 12];
+}
 const palaces = ["命宮","兄弟宮","夫妻宮","子女宮","財帛宮","疾厄宮","遷移宮","奴僕宮","官禄宮","田宅宮","福徳宮","父母宮"];
 
 function getStarsByPalace(lifePalace) {
@@ -143,7 +153,8 @@ var readingNo = "No." + today.getFullYear() + randomNum;
   "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：紫微星\n\n" +
-
+"生年干支：" + yearGanZhi + "\n" +
+"生時支：" + shiChen + "\n\n" +
   "【魂の本質】\n" +
   "あなたは生まれながらにして統率力を持つ特別な星を授かっています。" +
   "紫微星は帝王の星と呼ばれ、物事を大局で見る力を持っています。" +
@@ -198,7 +209,8 @@ var readingNo = "No." + today.getFullYear() + randomNum;
   "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：武曲星\n\n" +
-
+"生年干支：" + yearGanZhi + "\n" +
+"生時支：" + shiChen + "\n\n" +
   "【魂の本質】\n" +
   "あなたは実行と結果の星を持っています。" +
   "武曲星は財星であり、現実を動かす力を持つ実務型の星です。" +
@@ -251,7 +263,8 @@ var readingNo = "No." + today.getFullYear() + randomNum;
   "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：天府星\n\n" +
-
+"生年干支：" + yearGanZhi + "\n" +
+"生時支：" + shiChen + "\n\n" +
   "【魂の本質】\n" +
   "あなたは蓄財と安定の星を持っています。" +
   "天府星は財庫の星と呼ばれ、守る力・育てる力に優れています。" +
@@ -309,9 +322,12 @@ function uranai() {
     document.getElementById("result").innerText = "すべて入力してください";
     return;
   }
+var yearGanZhi = getYearGanZhi(birthYear);
+var shiChen = getShiChen(birthHour);
 
-  var baseNumber = birthYear + birthMonth + birthDay + birthHour;
-  var palaceIndex = baseNumber % 12;
+var baseNumber = birthMonth + earthlyBranches.indexOf(shiChen);
+var palaceIndex = baseNumber % 12;
+
 
   var lifePalace = palaces[palaceIndex];
   var stars = getStarsByPalace(lifePalace);
