@@ -114,9 +114,13 @@ function getStarsByPalace(lifePalace) {
 function makePaidReading(clientName, lifePalace, stars) {
 
   var mainStar = stars[0];
-
+var today = new Date();
+var dateText = today.getFullYear() + "年" +
+               (today.getMonth()+1) + "月" +
+               today.getDate() + "日";
 if (mainStar === "紫微星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
+ "鑑定日：" + dateText + "\n\n" +
   "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：紫微星\n\n" +
@@ -162,11 +166,15 @@ if (mainStar === "紫微星") {
 
   "【2026年開運行動】\n" +
   "西の整理整頓。" +
-  "ゴールド系小物。";
+  "ゴールド系小物。" +
+
+"\n\n――――――――――\n" +
+"紫微斗数鑑定士　清美";
 }
   if (mainStar === "武曲星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
-"お名前：" + clientName + "様\n\n" +
+"鑑定日：" + dateText + "\n\n" +
+  "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：武曲星\n\n" +
 
@@ -212,7 +220,8 @@ if (mainStar === "紫微星") {
 "迷ったら動く。";
   if (mainStar === "天府星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
-　"お名前：" + clientName + "様\n\n" +
+　"鑑定日：" + dateText + "\n\n" +
+  "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：天府星\n\n" +
 
