@@ -66,7 +66,7 @@ button:hover {
 
 #result {
   margin-top: 30px;
-  line-height: 1.9;
+  line-height: 2.1;
   white-space: pre-wrap;
   font-size: 15px;
 }
@@ -78,9 +78,12 @@ button:hover {
     display: none;
   }
   .container {
-    box-shadow: none;
-    border: none;
-  }
+  max-width: 600px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 60px;
+  border: 1px solid #d4c6a1;
+}
 }
 </style>
 
@@ -184,8 +187,9 @@ var readingNo = "No." + today.getFullYear() + randomNum;
   "西の整理整頓。" +
   "ゴールド系小物。" +
 
-"\n\n――――――――――\n" +
-"紫微斗数鑑定士　清美";
+"\n\n――――――――――――――――\n" +
+"紫微斗数鑑定士　清美\n" +
+"公式鑑定書";
 }
   if (mainStar === "武曲星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
@@ -234,6 +238,9 @@ var readingNo = "No." + today.getFullYear() + randomNum;
 "北方位の掃除。" +
 "黒かネイビーの財布。" +
 "迷ったら動く。";
+ "\n\n――――――――――――――――\n" +
+"紫微斗数鑑定士　清美\n" +
+"公式鑑定書";
   if (mainStar === "天府星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
 　"鑑定日：" + dateText + "\n\n" +
