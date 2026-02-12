@@ -110,11 +110,14 @@ function getStarsByPalace(lifePalace) {
   return ["紫微星"];
 }
 
-function makePaidReading(lifePalace, stars) {
+function makePaidReading(clientName, lifePalace, stars) {
+
+  var mainStar = stars[0];
 
   var mainStar = stars[0];
 if (mainStar === "紫微星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
+　 "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：紫微星\n\n" +
   "【魂の本質】\n" +
@@ -148,6 +151,7 @@ if (mainStar === "紫微星") {
 }
  if (mainStar === "武曲星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
+　 "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：武曲星\n\n" +
 
@@ -182,6 +186,7 @@ if (mainStar === "紫微星") {
 }
   if (mainStar === "天府星") {
   return "【紫微斗数 本格鑑定書】\n\n" +
+　 "お名前：" + clientName + "様\n\n" +
   "◆ 命宮：" + lifePalace + "\n" +
   "◆ 主星：天府星\n\n" +
 
