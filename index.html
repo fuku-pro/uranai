@@ -158,9 +158,9 @@ function getStarsByPalace(lifePalace) {
   return ["紫微星"];
 }
 
-function makePaidReading(clientName, lifePalace, stars) {
+function makePaidReading(clientName, lifePalace, stars, yearGanZhi, shiChen, fiveElement, mainStar) {
 
-  var mainStar = stars[0];
+  
 var today = new Date();
 var dateText =today.getFullYear() + "年" +
                (today.getMonth()+1) + "月" +
@@ -360,7 +360,15 @@ var mainStar = mainStars[palaceIndex];
   var lifePalace = palaces[palaceIndex];
   var stars = getStarsByPalace(lifePalace);
 
-  var reading = makePaidReading(clientName, lifePalace, stars);
+  var reading = makePaidReading(
+  clientName,
+  lifePalace,
+  stars,
+  yearGanZhi,
+  shiChen,
+  fiveElement,
+  mainStar
+);
 
   document.getElementById("result").innerText = reading;
 }
