@@ -29,7 +29,7 @@ h2 {
   margin-bottom: 40px;
   position: relative;
 }
-
+=
 h2::after {
   content: "";
   width: 60px;
@@ -159,7 +159,67 @@ function getStarsByPalace(lifePalace) {
 }
 
 function makePaidReading(clientName, lifePalace, yearGanZhi, shiChen, fiveElement, mainStar) {
+  var result = "";
 
+  if (mainStar == "紫微星") {
+    result = "帝王星。カリスマ性と統率力を持つリーダー型。";
+  } 
+  else if (mainStar == "天機星") {
+    result = "知性と戦略の星。頭脳派で分析力が高い。";
+  } 
+  else if (mainStar == "太陽星") {
+    result = "情熱と行動力。人を照らす太陽タイプ。";
+  } 
+  else if (mainStar == "武曲星") {
+    result = "財運と実行力。お金を動かす現実派。";
+  } 
+  else if (mainStar == "天同星") {
+    result = "優しさと福徳の星。愛され体質。";
+  } 
+  else if (mainStar == "廉貞星") {
+    result = "情熱と信念。好き嫌いがはっきり。";
+  } 
+  else if (mainStar == "天府星") {
+    result = "安定と蓄財。堅実な守りの星。";
+  } 
+  else if (mainStar == "太陰星") {
+    result = "感受性と美意識。静かな知性派。";
+  } 
+  else if (mainStar == "貪狼星") {
+    result = "魅力と欲望の星。人気者タイプ。";
+  } 
+  else if (mainStar == "巨門星") {
+    result = "言葉の力。議論と洞察の星。";
+  } 
+  else if (mainStar == "天相星") {
+    result = "調整力とバランス感覚。サポート上手。";
+  } 
+  else if (mainStar == "天梁星") {
+    result = "保護と慈愛。人助けの星。";
+  } 
+  else if (mainStar == "七殺星") {
+    result = "突破力と勝負運。革命タイプ。";
+  } 
+  else if (mainStar == "破軍星") {
+    result = "破壊と再生。人生逆転型。";
+  } 
+  else {
+    result = "現在データ調整中です。";
+  }
+
+  return "【" + clientName + "様の本格鑑定結果】\n\n"
+  + "◆命宮：" + lifePalace + "\n"
+  + "◆主星：" + mainStar + "\n"
+  + "◆干支：" + yearGanZhi + "\n"
+  + "◆時辰：" + shiChen + "\n"
+  + "◆五行局：" + fiveElement + "\n\n"
+  + "【主星解説】\n"
+  + result + "\n\n"
+  + "★総合運：主星の特性を活かすことで運気上昇します。\n"
+  + "★仕事運：専門性を高めると成功しやすいです。\n"
+  + "★金運：計画的管理が鍵になります。\n"
+  + "★対人運：相性を意識すると安定します。\n\n"
+  + "※こちらは本格鑑定の一部抜粋です。";
   
 var today = new Date();
 var dateText =today.getFullYear() + "年" +
